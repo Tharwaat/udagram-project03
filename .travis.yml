@@ -1,0 +1,17 @@
+language: node_js
+
+node_js:
+  - "12"
+
+sudo: required
+
+services:
+  - docker
+
+script: 
+  - docker-compose up
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push tharwat101/udagram-frontend:local
+  - docker push tharwat101/udagram-api-feed:latest
+  - docker push tharwat101/udagram-api-user:latest
+  - docker push tharwat101/reverseproxy:latest
