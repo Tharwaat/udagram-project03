@@ -9,6 +9,15 @@ services:
   - docker
 
 script: 
+  - export POSTGRES_USERNAME=postgres
+  - export POSTGRES_PASSWORD=password
+  - export POSTGRES_HOST=tharwatdb.cawxxvitgtzu.us-east-1.rds.amazonaws.com
+  - export POSTGRES_DB=postgres
+  - export AWS_BUCKET=arn:aws:s3:::udagrambucker
+  - export AWS_REGION=us-east-1
+  - export AWS_PROFILE=default
+  - export JWT_SECRET=testing
+  - export URL=http://localhost:8100
   - docker-compose up
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push tharwat101/udagram-frontend:local
