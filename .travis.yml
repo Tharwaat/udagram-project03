@@ -18,6 +18,7 @@ script:
   - export AWS_PROFILE=default
   - export JWT_SECRET=testing
   - export URL=http://localhost:8100
+  - docker-compose -f docker-compose-build.yaml build --parallel
   - docker-compose up
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push tharwat101/udagram-frontend:local
