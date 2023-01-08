@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-frontend-deployment
+  labels:
+    app: udagram-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-frontend
+  template:
+    metadata:
+      labels:
+        app: udagram-frontend
+    spec:
+      containers:
+      - name: udagram-frontend
+        image: tharwat101/udagram-frontend:local
+        ports:
+          - containerPort: 80
+        env:
+          - name: POSTGRES_USERNAME
+            valueFrom:
+              configMapKeyRef:
+                name: udagram-env
+                key: POSTGRES_USERNAME
+
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              configMapKeyRef:
+                name: udagram-env
+                key: POSTGRES_PASSWORD
+
+          - name: POSTGRES_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: udagram-env
+                key: POSTGRES_HOST
+
+          - name: POSTGRES_DB
+            valueFrom:
+              configMapKeyRef:
+                name: udagram-env
+                key: POSTGRES_DB
+
+          - name: AWS_BUCKET
+            valueFrom:
+              configMapKeyRef:
+                name: udagram-env
+                key: AWS_BUCKET
+
+          - name: AWS_REGION
+            valueFrom:
+              configMapKeyRef:
+                name: udagram-env
+                key: AWS_REGION
+
+          - name: AWS_PROFILE
+            valueFrom:
+              configMapKeyRef:
+                name: udagram-env
+                key: AWS_PROFILE
+          
+          - name: JWT_SECRET
+            valueFrom:
+              configMapKeyRef:
+                name: udagram-env
+                key: JWT_SECRET
+
+          - name: URL
+            valueFrom:
+              configMapKeyRef:
+                name: udagram-env
+                key: URL
