@@ -15,4 +15,4 @@ services:
   frontend:
     build:
       context: ./udagram-frontend
-    image: tharwat101/udagram-frontend:v1
+    image: tharwat101/udagram-frontend:v2
