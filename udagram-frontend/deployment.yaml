@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: udagram-frontend
-        image: tharwat101/udagram-frontend:local
+        image: tharwat101/udagram-frontend:v1
         ports:
           - containerPort: 80
         resources:

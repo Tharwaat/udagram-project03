@@ -20,7 +20,7 @@ script:
   - export URL=http://localhost:8100
   - docker-compose -f docker-compose-build.yaml build --parallel
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push tharwat101/udagram-frontend:local
+  - docker push tharwat101/udagram-frontend:v1
   - docker push tharwat101/udagram-api-feed:latest
   - docker push tharwat101/udagram-api-user:latest
   - docker push tharwat101/reverseproxy:latest
