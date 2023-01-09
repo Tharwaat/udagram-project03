@@ -3,23 +3,23 @@ kind: Deployment
 metadata:
   name: backend-feed
   labels:
-    app: backend-feed
+    service: backend-feed
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: backend-feed
+      service: backend-feed
   template:
     metadata:
       labels:
-        app: backend-feed
+        service: backend-feed
     spec:
       containers:
       - name: backend-feed
         image: tharwat101/udagram-api-feed:latest
         imagePullPolicy: Always
         ports:
-          - containerPort: 80
+          - containerPort: 8080
         resources:
           requests:
             memory: "1024Mi"

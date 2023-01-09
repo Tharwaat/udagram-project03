@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: udagram-frontend-deployment
   labels:
-    app: udagram-frontend
+    service: udagram-frontend-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: udagram-frontend
+      service: udagram-frontend-service
   template:
     metadata:
       labels:
-        app: udagram-frontend
+        service: udagram-frontend-service
     spec:
       containers:
       - name: udagram-frontend
